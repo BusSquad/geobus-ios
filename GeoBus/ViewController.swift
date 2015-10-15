@@ -12,77 +12,130 @@ import GoogleMaps
 class ViewController: UIViewController, NSXMLParserDelegate {
     
     var parser = NSXMLParser()
-    var posts = NSMutableArray()
-    var elements = NSMutableDictionary()
-    var element = NSString()
-    var route = NSMutableString()
-    var timestamp = NSMutableString()
-    
-    func beginParsing()
-    {
-        posts = []
-        parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
-        parser.delegate = self
-        parser.parse()
-        //tbData!.reloadData()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        beginParsing()
         
-        print("The route is")
-        let t = elements["route"]!
-        print(t)
-        print("The timestamp is")
-        let u = elements["timestamp"]!
-        print(u)
+        parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
         
+        let coord = Coord2()
+        parser.delegate = coord
+        parser.parse()
+        print("coord has a count attribute of \(coord.count)")
+        print("coord has \(coord.markers.count) markers")
+        
+        for marker in coord.markers {
+            print("marker item = \(marker.id) and lat = \(marker.lat)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // didStartElement
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
-    {
-        element = elementName
-        if (elementName as NSString).isEqualToString("marker")
-        {
-            elements = NSMutableDictionary()
-            elements = [:]
-            route = NSMutableString()
-            route = ""
-            timestamp = NSMutableString()
-            timestamp = ""
-        }
-    }
-    
-    // foundCharacters
-    func parser(parser: NSXMLParser, foundCharacters string: String)
-    {
-        if element.isEqualToString("route") {
-            route.appendString(string)
-        } else if element.isEqualToString("timestamp") {
-            timestamp.appendString(string)
-        }
-    }
-    
-    // didEndElement
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
-    {
-        if (elementName as NSString).isEqualToString("marker") {
-            if !route.isEqual(nil) {
-                elements.setObject(route, forKey: "route")
-            }
-            if !timestamp.isEqual(nil) {
-                elements.setObject(timestamp, forKey: "timestamp")
-            }
-            posts.addObject(elements)
-        }
-    }
 
 }
 
+// Simple base class that is used to consume foundCharacters
+// via the parser
+class ParserBase : NSObject, NSXMLParserDelegate  {
+    
+    var currentElement:String = ""
+    var foundCharacters = ""
+    weak var parent:ParserBase? = nil
+    
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        
+        currentElement = elementName
+    }
+    
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
+        self.foundCharacters += string
+    }
+    
+}
+
+// Represents a coord2 tag
+// It has a count attribute
+// and a collection of markers
+class Coord2 : ParserBase {
+    
+    var count = 0
+    var markers = [Marker]()
+    
+    override func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        
+        print("processing <\(elementName)> tag from Coord")
+        
+        if elementName == "coord2" {
+            
+            // if we are processing a coord2 tag, we are at the root
+            // of this example
+            // extract the count value and set it
+            if let c = Int(attributeDict["count"]!) {
+                self.count = c
+            }
+        }
+        
+        // if we found a marker tag, delegate further responsibility
+        // to parsing to a new instance of Marker
+        if elementName == "marker" {
+            let marker = Marker()
+            self.markers.append(marker)
+            
+            // push responsibility
+            parser.delegate = marker
+            
+            // let marker know who we are
+            // so that once marker is done XML processing
+            // it can return parsing responsibility back
+            marker.parent = self
+        }
+    }
+}
+
+// The Marker class
+class Marker : ParserBase {
+    
+    var id = ""
+    var lat = ""
+    var lng = ""
+    var route = ""
+    
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        
+        print("processing <\(elementName)> tag from Marker")
+        
+        // if we finished an item tag, the ParserBase parent
+        // would have accumulated the found characters
+        // so just assign that to our item variable
+        if elementName == "id" {
+            self.id = foundCharacters
+        }
+            
+        // similarly for lat tags
+        // convert the lat to an int for example
+        else if elementName == "lat" {
+            self.lat = foundCharacters
+        }
+            
+        else if elementName == "lng" {
+            self.lng = foundCharacters
+        }
+            
+        else if elementName == "route" {
+            self.route = foundCharacters
+        }
+            
+        // if we reached the </marker> tag, we do not
+        // have anything further to do, so delegate
+        // parsing responsibility to parent
+        else if elementName == "marker" {
+            parser.delegate = self.parent
+        }
+        
+        // reset found characters
+        foundCharacters = ""
+    }
+    
+}
