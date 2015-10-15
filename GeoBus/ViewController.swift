@@ -31,29 +31,13 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         super.viewDidLoad()
         beginParsing()
         
+        print("The route is")
         let t = elements["route"]!
         print(t)
-        print("previous is route")
+        print("The timestamp is")
         let u = elements["timestamp"]!
         print(u)
-        print("previous is timestamp")
         
-        // Displays the map adjusted to UC Santa Cruz
-        let camera = GMSCameraPosition.cameraWithLatitude(37.0000,
-            longitude: -122.0600, zoom: 14)
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        mapView.mapType = kGMSTypeNormal
-        mapView.myLocationEnabled = true
-        self.view = mapView
-        
-        // Displays Marker
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(37.0000, -122.0600)
-        marker.title = "UC Santa Cruz"
-        marker.snippet = "Santa Cruz, CA"
-        marker.icon = UIImage(named: "busstop")
-        marker.map = mapView
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +45,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    // didStartElement
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
     {
         element = elementName
@@ -75,6 +60,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         }
     }
     
+    // foundCharacters
     func parser(parser: NSXMLParser, foundCharacters string: String)
     {
         if element.isEqualToString("route") {
@@ -84,6 +70,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         }
     }
     
+    // didEndElement
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
     {
         if (elementName as NSString).isEqualToString("marker") {
