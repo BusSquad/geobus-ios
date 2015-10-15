@@ -11,34 +11,32 @@ import GoogleMaps
 
 class ViewController: UIViewController, NSXMLParserDelegate {
     
-    var strXMLData:String = ""
-    var currentElement:String = ""
-    var passData:Bool=false
-    var passName:Bool=false
     var parser = NSXMLParser()
+    var posts = NSMutableArray()
+    var elements = NSMutableDictionary()
+    var element = NSString()
+    var route = NSMutableString()
+    var timestamp = NSMutableString()
     
-    //@IBOutlet var lblNameData : UILabel! = nil
+    func beginParsing()
+    {
+        posts = []
+        parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
+        parser.delegate = self
+        parser.parse()
+        //tbData!.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        beginParsing()
         
-        let url:String="http://skynet.cse.ucsc.edu/bts/coord2.xml"
-        let urlToSend: NSURL = NSURL(string: url)!
-        // Parse the XML
-        parser = NSXMLParser(contentsOfURL: urlToSend)!
-        parser.delegate = self
-        
-        let success:Bool = parser.parse()
-        
-        if success {
-            print("parse success!")
-            
-            //print(strXMLData)
-            
-            //lblNameData.text=strXMLData
-            
-        } else {
-            print("parse failure!")
-        }
+        let t = elements["route"]!
+        print(t)
+        print("previous is route")
+        let u = elements["timestamp"]!
+        print(u)
+        print("previous is timestamp")
         
         // Displays the map adjusted to UC Santa Cruz
         let camera = GMSCameraPosition.cameraWithLatitude(37.0000,
@@ -63,46 +61,41 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func parser(_parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        currentElement=elementName;
-        if(elementName=="id" || elementName=="lat" || elementName=="lng" || elementName=="timeshare"
-            || elementName=="route" || elementName=="predictions")
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
+    {
+        element = elementName
+        if (elementName as NSString).isEqualToString("marker")
         {
-            if(elementName=="lat"){
-                passName=true;
+            elements = NSMutableDictionary()
+            elements = [:]
+            route = NSMutableString()
+            route = ""
+            timestamp = NSMutableString()
+            timestamp = ""
+        }
+    }
+    
+    func parser(parser: NSXMLParser, foundCharacters string: String)
+    {
+        if element.isEqualToString("route") {
+            route.appendString(string)
+        } else if element.isEqualToString("timestamp") {
+            timestamp.appendString(string)
+        }
+    }
+    
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
+    {
+        if (elementName as NSString).isEqualToString("marker") {
+            if !route.isEqual(nil) {
+                elements.setObject(route, forKey: "route")
             }
-            passData=true;
-            print("Element's name is \(elementName)")
-            print(attributeDict[elementName])
-        }
-    }
-    
-    func parser(_parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        currentElement="";
-        if(elementName=="id" || elementName=="name" || elementName=="lng" || elementName=="timestamp")
-        {
-            if(elementName=="name"){
-                passName=false;
+            if !timestamp.isEqual(nil) {
+                elements.setObject(timestamp, forKey: "timestamp")
             }
-            passData=false;
+            posts.addObject(elements)
         }
     }
-    
-    func parser(_parser: NSXMLParser, foundCharacters string: String) {
-        if(passName){
-            strXMLData=strXMLData+"\n\n"+string
-        }
-        
-        if(passData)
-        {
-            print(string)
-        }
-    }
-    
-    func parser(_parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
-        NSLog("failure error: %@", parseError)
-    }
-
 
 }
 
