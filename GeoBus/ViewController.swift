@@ -25,7 +25,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         print("coord has \(coord.markers.count) markers")
         
         for marker in coord.markers {
-            print("marker item = \(marker.id) and lat = \(marker.lat)")
+            print("marker item = \(marker.id) and lat = \(marker.lati)")
         }
     }
 
@@ -50,7 +50,7 @@ class ParserBase : NSObject, NSXMLParserDelegate  {
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String) {
-        self.foundCharacters += string
+        self.foundCharacters = string
     }
     
 }
@@ -72,6 +72,7 @@ class Coord2 : ParserBase {
             // if we are processing a coord2 tag, we are at the root
             // of this example
             // extract the count value and set it
+            print(attributeDict["count"])
             if let c = Int(attributeDict["count"]!) {
                 self.count = c
             }
@@ -101,6 +102,7 @@ class Marker : ParserBase {
     var lat = ""
     var lng = ""
     var route = ""
+    var lati = 0.0
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
@@ -117,6 +119,14 @@ class Marker : ParserBase {
         // convert the lat to an int for example
         else if elementName == "lat" {
             self.lat = foundCharacters
+            //print(foundCharacters)
+            //let newString = (self.lat).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            //print(newString)
+            //print(Float(newString))
+            if let doubleFromlat = Double(self.lat) {
+                self.lati = doubleFromlat
+            } else { print("foundCharacters does not hold double") }
+            
         }
             
         else if elementName == "lng" {
