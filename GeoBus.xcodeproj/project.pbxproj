@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3E4A9F954B3A011AB7D6C549 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBD1420A57C5A5055F030B8 /* libPods.a */; };
-		658265AA1BCD86AA005E6B56 /* pokeball.png in Resources */ = {isa = PBXBuildFile; fileRef = 658265A91BCD86AA005E6B56 /* pokeball.png */; settings = {ASSET_TAGS = (); }; };
-		658265AC1BCD8865005E6B56 /* busstop.png in Resources */ = {isa = PBXBuildFile; fileRef = 658265AB1BCD8865005E6B56 /* busstop.png */; settings = {ASSET_TAGS = (); }; };
 		65A235CC1BD2BAF50063E6D8 /* innerloop.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A235C91BD2BAF50063E6D8 /* innerloop.png */; settings = {ASSET_TAGS = (); }; };
 		65A235CD1BD2BAF50063E6D8 /* outerloop.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A235CA1BD2BAF50063E6D8 /* outerloop.png */; settings = {ASSET_TAGS = (); }; };
 		65A235CE1BD2BAF50063E6D8 /* uppercampus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A235CB1BD2BAF50063E6D8 /* uppercampus.png */; settings = {ASSET_TAGS = (); }; };
@@ -41,8 +39,6 @@
 
 /* Begin PBXFileReference section */
 		3ACD200B0AD8B6CAE839B927 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		658265A91BCD86AA005E6B56 /* pokeball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokeball.png; sourceTree = "<group>"; };
-		658265AB1BCD8865005E6B56 /* busstop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = busstop.png; path = ../../../../../../Desktop/busstop.png; sourceTree = "<group>"; };
 		65A235C91BD2BAF50063E6D8 /* innerloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = innerloop.png; path = ../../../../../../Desktop/innerloop.png; sourceTree = "<group>"; };
 		65A235CA1BD2BAF50063E6D8 /* outerloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = outerloop.png; path = ../../../../../../Desktop/outerloop.png; sourceTree = "<group>"; };
 		65A235CB1BD2BAF50063E6D8 /* uppercampus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uppercampus.png; path = ../../../../../../Desktop/uppercampus.png; sourceTree = "<group>"; };
@@ -124,11 +120,9 @@
 			children = (
 				65FF12191BCC757800792BF5 /* AppDelegate.swift */,
 				65FF121B1BCC757800792BF5 /* ViewController.swift */,
-				658265AB1BCD8865005E6B56 /* busstop.png */,
 				65A235C91BD2BAF50063E6D8 /* innerloop.png */,
 				65A235CA1BD2BAF50063E6D8 /* outerloop.png */,
 				65A235CB1BD2BAF50063E6D8 /* uppercampus.png */,
-				658265A91BCD86AA005E6B56 /* pokeball.png */,
 				65FF121D1BCC757800792BF5 /* Main.storyboard */,
 				65FF12201BCC757800792BF5 /* Assets.xcassets */,
 				65FF12221BCC757800792BF5 /* LaunchScreen.storyboard */,
@@ -271,9 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65A235CD1BD2BAF50063E6D8 /* outerloop.png in Resources */,
-				658265AC1BCD8865005E6B56 /* busstop.png in Resources */,
 				65FF12241BCC757800792BF5 /* LaunchScreen.storyboard in Resources */,
-				658265AA1BCD86AA005E6B56 /* pokeball.png in Resources */,
 				65FF12211BCC757800792BF5 /* Assets.xcassets in Resources */,
 				65A235CC1BD2BAF50063E6D8 /* innerloop.png in Resources */,
 				65FF121F1BCC757800792BF5 /* Main.storyboard in Resources */,

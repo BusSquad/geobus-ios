@@ -12,10 +12,14 @@ import GoogleMaps
 class ViewController: UIViewController, NSXMLParserDelegate {
     
     var parser = NSXMLParser()
+    var timer  = NSTimer()
     
     // viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // runs viewDidLoad() every 7 seconds
+        timer = NSTimer.scheduledTimerWithTimeInterval(7.0, target: self, selector: "viewDidLoad", userInfo: nil, repeats: true)
         
         // get the data from the XML file
         parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
