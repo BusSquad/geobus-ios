@@ -26,7 +26,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         print("coord has a count attribute of \(coord.count)")
         print("coord has \(coord.markers.count) markers")
         
-        // Displays the map adjusted to UC Santa Cruz
+        // displays the map adjusted to UC Santa Cruz
         let camera = GMSCameraPosition.cameraWithLatitude(37.0000,
             longitude: -122.0600, zoom: 14)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
@@ -39,12 +39,16 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         for marker in coord.markers {
             print("marker id=\(marker.id), lat=\(marker.lati), lng=\(marker.lngi), route=\(marker.route)")
             
-            // Displays the buses
+            // displays the buses
             let buses = GMSMarker()
             buses.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
             buses.title = marker.route
+            if buses.title == "UPPER CAMPUS" {
+                buses.icon = UIImage(named: "uppercampus")
+            } else if buses.title == "LOOP" {
+                buses.icon = UIImage(named: "innerloop")
+            }
             buses.snippet = marker.id
-            buses.icon = UIImage(named: "busstop")
             buses.map = mapView
         }
     }
@@ -57,8 +61,8 @@ class ViewController: UIViewController, NSXMLParserDelegate {
 
 }
 
-// ParseBase
-// Simple base class that is used to consume foundCharacters
+// ParseBase class
+// simple base class that is used to consume foundCharacters
 // via the parser
 class ParserBase : NSObject, NSXMLParserDelegate  {
     
@@ -77,8 +81,9 @@ class ParserBase : NSObject, NSXMLParserDelegate  {
     
 }
 
-// Represents a coord2 tag
-// It has a count attribute
+// Coord2 class
+// represents a coord2 tag
+// it has a count attribute
 // and a collection of markers
 class Coord2 : ParserBase {
     
@@ -117,7 +122,7 @@ class Coord2 : ParserBase {
     }
 }
 
-// The Marker class
+// Marker class
 class Marker : ParserBase {
     
     var id = ""
