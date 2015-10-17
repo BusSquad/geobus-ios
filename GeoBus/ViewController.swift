@@ -26,8 +26,26 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         print("coord has a count attribute of \(coord.count)")
         print("coord has \(coord.markers.count) markers")
         
+        // Displays the map adjusted to UC Santa Cruz
+        let camera = GMSCameraPosition.cameraWithLatitude(37.0000,
+            longitude: -122.0600, zoom: 14)
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        mapView.mapType = kGMSTypeNormal
+        mapView.myLocationEnabled = true
+        self.view = mapView
+        
+        // loops through all the lats and lngs of the buses and produces a marker
+        // for them on our Google Maps app
         for marker in coord.markers {
             print("marker id=\(marker.id), lat=\(marker.lati), lng=\(marker.lngi), route=\(marker.route)")
+            
+            // Displays the buses
+            let buses = GMSMarker()
+            buses.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
+            buses.title = marker.route
+            buses.snippet = marker.id
+            buses.icon = UIImage(named: "busstop")
+            buses.map = mapView
         }
     }
 
