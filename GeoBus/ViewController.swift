@@ -18,8 +18,8 @@ class ViewController: UIViewController, NSXMLParserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // runs viewDidLoad() every 7 seconds
-        timer = NSTimer.scheduledTimerWithTimeInterval(7.0, target: self, selector: "viewDidLoad", userInfo: nil, repeats: true)
+        // runs viewDidLoad() every 10 seconds
+        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "viewDidLoad", userInfo: nil, repeats: true)
         
         // get the data from the XML file
         parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
