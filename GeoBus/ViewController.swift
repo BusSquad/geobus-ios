@@ -19,9 +19,23 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         super.viewDidLoad()
         
         // runs viewDidLoad() every 10 seconds
-        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "viewDidLoad", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "reloadBuses", userInfo: nil, repeats: true)
         
-        // get the data from the XML file
+        // XML file
+        parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
+        
+        
+    }
+
+    // didReceiveMemoryWarning()
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func reloadBuses() {
+        
+        // XML file
         parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
         
         let coord = Coord2()
@@ -55,12 +69,6 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             buses.snippet = marker.id
             buses.map = mapView
         }
-    }
-
-    // didReceiveMemoryWarning()
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }
