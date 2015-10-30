@@ -18,22 +18,20 @@ class ViewController: UIViewController, NSXMLParserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // runs viewDidLoad() every 10 seconds
+        // runs reloadBuses() every 10 seconds
         timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "reloadBuses", userInfo: nil, repeats: true)
         
-        // XML file
-        parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
-        
-        
-    }
-
-    // didReceiveMemoryWarning()
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func reloadBuses() {
+        
+        // displays the map adjusted to UC Santa Cruz
+        let camera = GMSCameraPosition.cameraWithLatitude(37.0000,
+            longitude: -122.0600, zoom: 14)
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        mapView.mapType = kGMSTypeNormal
+        mapView.myLocationEnabled = true
+        self.view = mapView
         
         // XML file
         parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
@@ -43,14 +41,6 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         parser.parse()
         print("coord has a count attribute of \(coord.count)")
         print("coord has \(coord.markers.count) markers")
-        
-        // displays the map adjusted to UC Santa Cruz
-        let camera = GMSCameraPosition.cameraWithLatitude(37.0000,
-            longitude: -122.0600, zoom: 14)
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        mapView.mapType = kGMSTypeNormal
-        mapView.myLocationEnabled = true
-        self.view = mapView
         
         // loops through all the lats and lngs of the buses and produces a marker
         // for them on our Google Maps app
@@ -69,6 +59,12 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             buses.snippet = marker.id
             buses.map = mapView
         }
+    }
+    
+    // didReceiveMemoryWarning()
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
 }
