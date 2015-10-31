@@ -28,24 +28,54 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         mapView.myLocationEnabled = true
         self.view = mapView
         
-        // runs reloadBuses() every 10 seconds
-        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "reloadBuses", userInfo: nil, repeats: true)
-        
-    }
-    
-    func reloadBuses() {
-        
-        // clears old markers
-        mapView.clear()
-        
-        // XML file
+        // xml file
         parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
         
+        // build obejects for xml data
         let coord = Coord2()
         parser.delegate = coord
         parser.parse()
         print("coord has a count attribute of \(coord.count)")
         print("coord has \(coord.markers.count) markers")
+        
+        // loops through all the lats and lngs of the buses and produces a marker for each
+        for marker in coord.markers {
+            print("marker id=\(marker.id), lat=\(marker.lati), lng=\(marker.lngi), route=\(marker.route)")
+            
+            // displays the buses
+            let buses = GMSMarker()
+            buses.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
+            buses.title = marker.route
+            if buses.title == "UPPER CAMPUS" {
+                buses.icon = UIImage(named: "uppercampus")
+            } else if buses.title == "LOOP" {
+                buses.icon = UIImage(named: "innerloop")
+            }
+            buses.snippet = marker.id
+            buses.map = mapView
+        }
+        
+        // runs reloadBuses() every 10 seconds
+        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "reloadBuses", userInfo: nil, repeats: true)
+        
+    }
+    
+    
+    func reloadBuses() {
+        // clears all old markers
+        mapView.clear()
+        
+        // XML file
+        parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
+        
+        // build obejects for xml data
+        let coord = Coord2()
+        parser.delegate = coord
+        parser.parse()
+        print("coord has a count attribute of \(coord.count)")
+        print("coord has \(coord.markers.count) markers")
+        
+        //buses.map = nil
         
         // loops through all the lats and lngs of the buses and produces a marker
         // for them on our Google Maps app
