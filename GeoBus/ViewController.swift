@@ -14,9 +14,19 @@ class ViewController: UIViewController, NSXMLParserDelegate {
     var parser = NSXMLParser()
     var timer  = NSTimer()
     
+    @IBOutlet var mapView: GMSMapView!
+    
     // viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // displays the map adjusted to UC Santa Cruz
+        let camera = GMSCameraPosition.cameraWithLatitude(37.0000,
+            longitude: -122.0600, zoom: 14)
+        mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        mapView.mapType = kGMSTypeNormal
+        mapView.myLocationEnabled = true
+        self.view = mapView
         
         // runs reloadBuses() every 10 seconds
         timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "reloadBuses", userInfo: nil, repeats: true)
@@ -25,13 +35,8 @@ class ViewController: UIViewController, NSXMLParserDelegate {
     
     func reloadBuses() {
         
-        // displays the map adjusted to UC Santa Cruz
-        let camera = GMSCameraPosition.cameraWithLatitude(37.0000,
-            longitude: -122.0600, zoom: 14)
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        mapView.mapType = kGMSTypeNormal
-        mapView.myLocationEnabled = true
-        self.view = mapView
+        // clears old markers
+        mapView.clear()
         
         // XML file
         parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
