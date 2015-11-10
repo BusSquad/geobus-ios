@@ -21,8 +21,8 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         super.viewDidLoad()
         
         // displays the map adjusted to UC Santa Cruz
-        let camera = GMSCameraPosition.cameraWithLatitude(37.0000,
-            longitude: -122.0600, zoom: 14)
+        let camera = GMSCameraPosition.cameraWithLatitude(36.9900,
+            longitude: -122.0605, zoom: 14)
         mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         mapView.mapType = kGMSTypeNormal
         mapView.myLocationEnabled = true
@@ -49,7 +49,11 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             if buses.title == "UPPER CAMPUS" {
                 buses.icon = UIImage(named: "uppercampus")
             } else if buses.title == "LOOP" {
-                buses.icon = UIImage(named: "innerloop")
+                if marker.direc == "inner" {
+                    buses.icon = UIImage(named: "innerloop")
+                } else if marker.direc == "outer" {
+                    buses.icon = UIImage(named: "outerloop")
+                }
             }
             buses.snippet = marker.id
             buses.map = mapView
@@ -89,7 +93,11 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             if buses.title == "UPPER CAMPUS" {
                 buses.icon = UIImage(named: "uppercampus")
             } else if buses.title == "LOOP" {
-                buses.icon = UIImage(named: "innerloop")
+                if marker.direc == "inner" {
+                    buses.icon = UIImage(named: "innerloop")
+                } else if marker.direc == "outer" {
+                    buses.icon = UIImage(named: "outerloop")
+                }
             }
             buses.snippet = marker.id
             buses.map = mapView
@@ -172,6 +180,7 @@ class Marker : ParserBase {
     var lat = ""
     var lng = ""
     var route = ""
+    var direc = ""
     var lati = 0.0
     var lngi = 0.0
     
@@ -207,6 +216,10 @@ class Marker : ParserBase {
             
         else if elementName == "route" {
             self.route = foundCharacters
+        }
+        
+        else if elementName == "direction" {
+            self.direc = foundCharacters
         }
             
         // if we reached the </marker> tag, we do not
