@@ -65,10 +65,8 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         
     }
     
-    
+    // displays and removes buses
     func reloadBuses() {
-        // clears all old markers
-        // mapView.clear()
         
         // bools for buses to know which are in service
         var busBool7921 = true
@@ -106,13 +104,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7921" {
                 bus7921.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7921.title = marker.route
-                if bus7921.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7921.title = "UPPER CAMPUS"
                     bus7921.icon = UIImage(named: "uppercampus")
-                } else if bus7921.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7921.title = "INNER LOOP"
                         bus7921.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7921.title = "OUTER LOOP"
                         bus7921.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -123,13 +123,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7937" {
                 bus7937.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7937.title = marker.route
-                if bus7937.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7937.title = "UPPER CAMPUS"
                     bus7937.icon = UIImage(named: "uppercampus")
-                } else if bus7937.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7937.title = "INNER LOOP"
                         bus7937.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7937.title = "OUTER LOOP"
                         bus7937.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -140,13 +142,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7925" {
                 bus7925.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7925.title = marker.route
-                if bus7925.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7925.title = "UPPER CAMPUS"
                     bus7925.icon = UIImage(named: "uppercampus")
-                } else if bus7925.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7925.title = "INNER LOOP"
                         bus7925.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7925.title = "OUTER LOOP"
                         bus7925.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -157,13 +161,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7934" {
                 bus7934.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7934.title = marker.route
-                if bus7934.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7934.title = "UPPER CAMPUS"
                     bus7934.icon = UIImage(named: "uppercampus")
-                } else if bus7934.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7934.title = "INNER LOOP"
                         bus7934.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7934.title = "OUTER LOOP"
                         bus7934.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -174,13 +180,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7929" {
                 bus7929.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7929.title = marker.route
-                if bus7929.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7929.title = "UPPER CAMPUS"
                     bus7929.icon = UIImage(named: "uppercampus")
-                } else if bus7929.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7929.title = "INNER LOOP"
                         bus7929.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7929.title = "OUTER LOOP"
                         bus7929.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -191,13 +199,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7928" {
                 bus7928.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7928.title = marker.route
-                if bus7928.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7928.title = "UPPER CAMPUS"
                     bus7928.icon = UIImage(named: "uppercampus")
-                } else if bus7928.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7928.title = "INNER LOOP"
                         bus7928.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7928.title = "OUTER LOOP"
                         bus7928.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -208,13 +218,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7868" {
                 bus7868.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7868.title = marker.route
-                if bus7868.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7868.title = "UPPER CAMPUS"
                     bus7868.icon = UIImage(named: "uppercampus")
-                } else if bus7868.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7868.title = "INNER LOOP"
                         bus7868.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7868.title = "OUTER LOOP"
                         bus7868.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -225,13 +237,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7923" {
                 bus7923.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7923.title = marker.route
-                if bus7923.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7923.title = "UPPER CAMPUS"
                     bus7923.icon = UIImage(named: "uppercampus")
-                } else if bus7923.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7923.title = "INNER LOOP"
                         bus7923.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7923.title = "OUTER LOOP"
                         bus7923.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -242,13 +256,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7869" {
                 bus7869.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7869.title = marker.route
-                if bus7869.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7869.title = "UPPER CAMPUS"
                     bus7869.icon = UIImage(named: "uppercampus")
-                } else if bus7869.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7869.title = "INNER LOOP"
                         bus7869.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7869.title = "OUTER LOOP"
                         bus7869.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -259,13 +275,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7870" {
                 bus7870.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7870.title = marker.route
-                if bus7870.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7870.title = "UPPER CAMPUS"
                     bus7870.icon = UIImage(named: "uppercampus")
-                } else if bus7870.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7870.title = "INNER LOOP"
                         bus7870.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7870.title = "OUTER LOOP"
                         bus7870.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -276,13 +294,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7860" {
                 bus7860.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7860.title = marker.route
-                if bus7860.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7860.title = "UPPER CAMPUS"
                     bus7860.icon = UIImage(named: "uppercampus")
-                } else if bus7860.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7860.title = "INNER LOOP"
                         bus7860.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7860.title = "OUTER LOOP"
                         bus7860.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -293,13 +313,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7927" {
                 bus7927.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7927.title = marker.route
-                if bus7927.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7927.title = "UPPER CAMPUS"
                     bus7927.icon = UIImage(named: "uppercampus")
-                } else if bus7927.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7927.title = "INNER LOOP"
                         bus7927.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7927.title = "OUTER LOOP"
                         bus7927.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -310,13 +332,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7920" {
                 bus7920.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7920.title = marker.route
-                if bus7920.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7920.title = "UPPER CAMPUS"
                     bus7920.icon = UIImage(named: "uppercampus")
-                } else if bus7920.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7920.title = "INNER LOOP"
                         bus7920.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7920.title = "OUTER LOOP"
                         bus7920.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -327,13 +351,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7935" {
                 bus7935.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7935.title = marker.route
-                if bus7935.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7935.title = "UPPER CAMPUS"
                     bus7935.icon = UIImage(named: "uppercampus")
-                } else if bus7935.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7935.title = "INNER LOOP"
                         bus7935.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7935.title = "OUTER LOOP"
                         bus7935.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -344,13 +370,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7926" {
                 bus7926.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7926.title = marker.route
-                if bus7926.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7926.title = "UPPER CAMPUS"
                     bus7926.icon = UIImage(named: "uppercampus")
-                } else if bus7926.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7926.title = "INNER LOOP"
                         bus7926.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7926.title = "OUTER LOOP"
                         bus7926.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -361,13 +389,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7936" {
                 bus7936.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7936.title = marker.route
-                if bus7936.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7936.title = "UPPER CAMPUS"
                     bus7936.icon = UIImage(named: "uppercampus")
-                } else if bus7936.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7936.title = "INNER LOOP"
                         bus7936.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7936.title = "OUTER LOOP"
                         bus7936.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -378,13 +408,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7924" {
                 bus7924.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7924.title = marker.route
-                if bus7924.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7924.title = "UPPER CAMPUS"
                     bus7924.icon = UIImage(named: "uppercampus")
-                } else if bus7924.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7924.title = "INNER LOOP"
                         bus7924.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7924.title = "OUTER LOOP"
                         bus7924.icon = UIImage(named: "outerloop")
                     }
                 }
@@ -395,13 +427,15 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             
             if marker.id == "7855" {
                 bus7855.position = CLLocationCoordinate2DMake(marker.lati, marker.lngi)
-                bus7855.title = marker.route
-                if bus7855.title == "UPPER CAMPUS" {
+                if marker.route == "UPPER CAMPUS" {
+                    bus7855.title = "UPPER CAMPUS"
                     bus7855.icon = UIImage(named: "uppercampus")
-                } else if bus7855.title == "LOOP" {
+                } else if marker.route == "LOOP" {
                     if marker.direc == "inner" {
+                        bus7855.title = "INNER LOOP"
                         bus7855.icon = UIImage(named: "innerloop")
                     } else if marker.direc == "outer" {
+                        bus7855.title = "OUTER LOOP"
                         bus7855.icon = UIImage(named: "outerloop")
                     }
                 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E4A9F954B3A011AB7D6C549 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBD1420A57C5A5055F030B8 /* libPods.a */; };
+		657822531BF2D82B005D82FA /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 657822521BF2D82B005D82FA /* InfoWindow.xib */; settings = {ASSET_TAGS = (); }; };
+		657822551BF2DBC6005D82FA /* CustomInfoWindow.png in Resources */ = {isa = PBXBuildFile; fileRef = 657822541BF2DBC6005D82FA /* CustomInfoWindow.png */; settings = {ASSET_TAGS = (); }; };
 		65A235CC1BD2BAF50063E6D8 /* innerloop.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A235C91BD2BAF50063E6D8 /* innerloop.png */; };
 		65A235CD1BD2BAF50063E6D8 /* outerloop.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A235CA1BD2BAF50063E6D8 /* outerloop.png */; };
 		65A235CE1BD2BAF50063E6D8 /* uppercampus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A235CB1BD2BAF50063E6D8 /* uppercampus.png */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		3ACD200B0AD8B6CAE839B927 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		657822521BF2D82B005D82FA /* InfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
+		657822541BF2DBC6005D82FA /* CustomInfoWindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CustomInfoWindow.png; sourceTree = "<group>"; };
 		6599BCD01BDEC1CB002E179F /* GeoBus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GeoBus-Bridging-Header.h"; sourceTree = "<group>"; };
 		65A235C91BD2BAF50063E6D8 /* innerloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = innerloop.png; path = ../../../../../../Desktop/innerloop.png; sourceTree = "<group>"; };
 		65A235CA1BD2BAF50063E6D8 /* outerloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = outerloop.png; path = ../../../../../../Desktop/outerloop.png; sourceTree = "<group>"; };
@@ -123,12 +127,14 @@
 				65FF121B1BCC757800792BF5 /* ViewController.swift */,
 				65A235C91BD2BAF50063E6D8 /* innerloop.png */,
 				65A235CA1BD2BAF50063E6D8 /* outerloop.png */,
+				657822541BF2DBC6005D82FA /* CustomInfoWindow.png */,
 				65A235CB1BD2BAF50063E6D8 /* uppercampus.png */,
 				65FF121D1BCC757800792BF5 /* Main.storyboard */,
 				65FF12201BCC757800792BF5 /* Assets.xcassets */,
 				65FF12221BCC757800792BF5 /* LaunchScreen.storyboard */,
 				65FF12251BCC757800792BF5 /* Info.plist */,
 				6599BCD01BDEC1CB002E179F /* GeoBus-Bridging-Header.h */,
+				657822521BF2D82B005D82FA /* InfoWindow.xib */,
 			);
 			path = GeoBus;
 			sourceTree = "<group>";
@@ -272,6 +278,8 @@
 				65FF12211BCC757800792BF5 /* Assets.xcassets in Resources */,
 				65A235CC1BD2BAF50063E6D8 /* innerloop.png in Resources */,
 				65FF121F1BCC757800792BF5 /* Main.storyboard in Resources */,
+				657822531BF2D82B005D82FA /* InfoWindow.xib in Resources */,
+				657822551BF2DBC6005D82FA /* CustomInfoWindow.png in Resources */,
 				65A235CE1BD2BAF50063E6D8 /* uppercampus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
