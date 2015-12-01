@@ -47,11 +47,16 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         mapView.myLocationEnabled = true
         self.view = mapView
         
-        /*
-        
-        */
+        //button to toggle bus stops on and off
+        let busbutton = UIButton(type: UIButtonType.System) as UIButton
+        busbutton.frame = CGRectMake(150,500,100,50)
+        busbutton.backgroundColor=UIColor.blueColor();
+        busbutton.setTitle("Hide Bus Stops", forState: UIControlState.Normal)
+        busbutton.addTarget(self, action: "buttonAction:", forControlEvents: .TouchUpInside)
+        self.view.addSubview(busbutton)
         
         //bus stops
+        if(buttonclick == true){
         let marker1 = GMSMarker()
         marker1.position = CLLocationCoordinate2DMake(36.985370, -122.060099)
         marker1.title = "University of California Santa Cruz"
@@ -291,7 +296,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker30.appearAnimation = kGMSMarkerAnimationPop
         marker30.icon = UIImage(named:"bus_stop_blue")
         marker30.map = mapView
-        
+        }
         
         // xml file
         parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://skynet.cse.ucsc.edu/bts/coord2.xml"))!)!
@@ -310,6 +315,14 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         // runs reloadBuses() every 10 seconds
         timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "reloadBuses", userInfo: nil, repeats: true)
         
+    }
+    
+    //button click function
+    func buttonAction(sender:UIButton!){
+        print("Button Clicked")
+        buttonclick = !buttonclick
+        print(buttonclick)
+        viewDidLoad()
     }
     
     // displays and removes buses
