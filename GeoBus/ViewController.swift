@@ -51,7 +51,12 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         let busbutton = UIButton(type: UIButtonType.System) as UIButton
         busbutton.frame = CGRectMake(150,500,100,50)
         busbutton.backgroundColor=UIColor.blueColor();
-        busbutton.setTitle("Hide Bus Stops", forState: UIControlState.Normal)
+        if(buttonclick == true){
+            busbutton.setTitle("Hide Bus Stops", forState: UIControlState.Normal)
+        }
+        if(buttonclick == false){
+            busbutton.setTitle("Show Bus Stops", forState: UIControlState.Normal)
+        }
         busbutton.addTarget(self, action: "buttonAction:", forControlEvents: .TouchUpInside)
         self.view.addSubview(busbutton)
         
