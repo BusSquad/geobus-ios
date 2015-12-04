@@ -14,6 +14,11 @@ class ViewController: UIViewController, NSXMLParserDelegate {
     var parser = NSXMLParser()
     var timer  = NSTimer()
     
+    // necessary for positioning the toggle button
+    let screenSize = UIScreen.mainScreen().bounds
+    var screenWidth : CGFloat!
+    var screenHeight : CGFloat!
+    
     @IBOutlet var mapView: GMSMapView!
     let bus7921 = GMSMarker()
     let bus7937 = GMSMarker()
@@ -47,10 +52,17 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         mapView.myLocationEnabled = true
         self.view = mapView
         
-        //button to toggle bus stops on and off
+        // x-axis of device screen
+        screenWidth = screenSize.width * 0.5
+        
+        // y-axis of device screen
+        screenHeight = screenSize.height
+        
+        // button to toggle bus stops on and off
         let busbutton = UIButton(type: UIButtonType.System) as UIButton
-        busbutton.frame = CGRectMake(150,500,100,50)
-        busbutton.backgroundColor=UIColor.blueColor();
+        busbutton.frame = CGRectMake(screenWidth - 75,500,150,50)
+        busbutton.backgroundColor=UIColor.lightGrayColor();
+        busbutton.layer.cornerRadius = 15
         if(buttonclick == true){
             busbutton.setTitle("Hide Bus Stops", forState: UIControlState.Normal)
         }
@@ -60,7 +72,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         busbutton.addTarget(self, action: "buttonAction:", forControlEvents: .TouchUpInside)
         self.view.addSubview(busbutton)
         
-        //bus stops
+        // bus stops
         if(buttonclick == true){
         let marker1 = GMSMarker()
         marker1.position = CLLocationCoordinate2DMake(36.985370, -122.060099)
@@ -322,7 +334,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         
     }
     
-    //button click function
+    // button click function
     func buttonAction(sender:UIButton!){
         print("Button Clicked")
         buttonclick = !buttonclick
