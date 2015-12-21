@@ -48,7 +48,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         let camera = GMSCameraPosition.cameraWithLatitude(36.9900,
             longitude: -122.0605, zoom: 14)
         mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        mapView.mapType = kGMSTypeNormal
+        mapView.mapType = GoogleMaps.kGMSTypeNormal
         mapView.myLocationEnabled = true
         self.view = mapView
         
@@ -63,6 +63,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         busbutton.frame = CGRectMake(screenWidth - 75,500,150,50)
         busbutton.backgroundColor=UIColor.lightGrayColor();
         busbutton.layer.cornerRadius = 15
+        busbutton.titleLabel!.font =  UIFont(name: "Helvetica", size: 20)
         if(buttonclick == true){
             busbutton.setTitle("Hide Bus Stops", forState: UIControlState.Normal)
         }
@@ -78,7 +79,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker1.position = CLLocationCoordinate2DMake(36.985370, -122.060099)
         marker1.title = "University of California Santa Cruz"
         marker1.snippet = "Mascot: Sammy the Slug"
-        marker1.appearAnimation = kGMSMarkerAnimationPop
+        marker1.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker1.icon = UIImage(named:"slug")
         marker1.map = mapView
         
@@ -86,7 +87,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker2.position = CLLocationCoordinate2DMake(36.999719, -122.058393)
         marker2.title = "McLaughlin & College 9/10"
         marker2.snippet = "15 19"
-        marker2.appearAnimation = kGMSMarkerAnimationPop
+        marker2.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker2.icon = UIImage(named:"bus_stop_orange")
         marker2.map = mapView
         
@@ -94,7 +95,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker3.position = CLLocationCoordinate2DMake(36.999901, -122.058372)
         marker3.title = "McLaughlin & College 9/10"
         marker3.snippet = "10 12 20 16"
-        marker3.appearAnimation = kGMSMarkerAnimationPop
+        marker3.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker3.icon = UIImage(named:"bus_stop_blue")
         marker3.map = mapView
         
@@ -102,7 +103,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker4.position = CLLocationCoordinate2DMake(36.999913, -122.062371)
         marker4.title = "McLaughlin & Science Hill"
         marker4.snippet = "10 12 20 16"
-        marker4.appearAnimation = kGMSMarkerAnimationPop
+        marker4.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker4.icon = UIImage(named:"bus_stop_blue")
         marker4.map = mapView
         
@@ -110,7 +111,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker5.position = CLLocationCoordinate2DMake(36.999809, -122.062068)
         marker5.title = "McLaughlin & Science Hill"
         marker5.snippet = "15 19"
-        marker5.appearAnimation = kGMSMarkerAnimationPop
+        marker5.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker5.icon = UIImage(named:"bus_stop_orange")
         marker5.map = mapView
         
@@ -118,7 +119,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker6.position = CLLocationCoordinate2DMake(36.999198, -122.064371)
         marker6.title = "Heller & Kresge College"
         marker6.snippet = "15 19"
-        marker6.appearAnimation = kGMSMarkerAnimationPop
+        marker6.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker6.icon = UIImage(named:"bus_stop_orange")
         marker6.map = mapView
         
@@ -126,7 +127,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker7.position = CLLocationCoordinate2DMake(36.999225, -122.064522)
         marker7.title = "Heller & Kresge College"
         marker7.snippet = "10 12 20 16"
-        marker7.appearAnimation = kGMSMarkerAnimationPop
+        marker7.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker7.icon = UIImage(named:"bus_stop_blue")
         marker7.map = mapView
         
@@ -134,7 +135,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker8.position = CLLocationCoordinate2DMake(36.996736, -122.063586)
         marker8.title = "Heller & Kerr Hall"
         marker8.snippet = "15 19"
-        marker8.appearAnimation = kGMSMarkerAnimationPop
+        marker8.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker8.icon = UIImage(named:"bus_stop_orange")
         marker8.map = mapView
         
@@ -142,7 +143,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker9.position = CLLocationCoordinate2DMake(36.992781, -122.064729)
         marker9.title = "Heller & College 8/Porter"
         marker9.snippet = "15 19"
-        marker9.appearAnimation = kGMSMarkerAnimationPop
+        marker9.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker9.icon = UIImage(named:"bus_stop_orange")
         marker9.map = mapView
         
@@ -150,7 +151,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker10.position = CLLocationCoordinate2DMake(36.993011, -122.065332)
         marker10.title = "Heller & College 8/Porter"
         marker10.snippet = "10 12 20 16"
-        marker10.appearAnimation = kGMSMarkerAnimationPop
+        marker10.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker10.icon = UIImage(named:"bus_stop_blue")
         marker10.map = mapView
         
@@ -158,7 +159,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker11.position = CLLocationCoordinate2DMake(36.991710, -122.066808)
         marker11.title = "Heller & Family Student Housing"
         marker11.snippet = "10 12 20 16"
-        marker11.appearAnimation = kGMSMarkerAnimationPop
+        marker11.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker11.icon = UIImage(named:"bus_stop_blue")
         marker11.map = mapView
         
@@ -166,7 +167,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker12.position = CLLocationCoordinate2DMake(36.990675, -122.066070)
         marker12.title = "Heller & Oakes College"
         marker12.snippet = "15 19"
-        marker12.appearAnimation = kGMSMarkerAnimationPop
+        marker12.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker12.icon = UIImage(named:"bus_stop_orange")
         marker12.map = mapView
         
@@ -174,7 +175,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker13.position = CLLocationCoordinate2DMake(36.989923, -122.067298)
         marker13.title = "Heller & Oakes College"
         marker13.snippet = "10 12 20 16"
-        marker13.appearAnimation = kGMSMarkerAnimationPop
+        marker13.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker13.icon = UIImage(named:"bus_stop_blue")
         marker13.map = mapView
         
@@ -182,7 +183,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker14.position = CLLocationCoordinate2DMake(36.983681, -122.065073)
         marker14.title = "Empire Grade & Arboretum"
         marker14.snippet = "10 12 20 16"
-        marker14.appearAnimation = kGMSMarkerAnimationPop
+        marker14.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker14.icon = UIImage(named:"bus_stop_blue")
         marker14.map = mapView
         
@@ -190,7 +191,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker15.position = CLLocationCoordinate2DMake(36.982729, -122.062573)
         marker15.title = "Empire Grade & Arboretum"
         marker15.snippet = "15 19"
-        marker15.appearAnimation = kGMSMarkerAnimationPop
+        marker15.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker15.icon = UIImage(named:"bus_stop_orange")
         marker15.map = mapView
         
@@ -198,7 +199,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker16.position = CLLocationCoordinate2DMake(36.979882, -122.059269)
         marker16.title = "Empire Grade & Tosca Terrace"
         marker16.snippet = "10 12 20 16"
-        marker16.appearAnimation = kGMSMarkerAnimationPop
+        marker16.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker16.icon = UIImage(named:"bus_stop_blue")
         marker16.map = mapView
         
@@ -206,7 +207,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker17.position = CLLocationCoordinate2DMake(36.978753, -122.057694)
         marker17.title = "High & Western Dr."
         marker17.snippet = "15 19"
-        marker17.appearAnimation = kGMSMarkerAnimationPop
+        marker17.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker17.icon = UIImage(named:"bus_stop_orange")
         marker17.map = mapView
         
@@ -214,7 +215,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker18.position = CLLocationCoordinate2DMake(36.978658, -122.057826)
         marker18.title = "High & Western Dr."
         marker18.snippet = "10 12 20 16"
-        marker18.appearAnimation = kGMSMarkerAnimationPop
+        marker18.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker18.icon = UIImage(named:"bus_stop_blue")
         marker18.map = mapView
         
@@ -222,7 +223,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker19.position = CLLocationCoordinate2DMake(36.977317, -122.054255)
         marker19.title = "High & Barn Theater"
         marker19.snippet = "15 19"
-        marker19.appearAnimation = kGMSMarkerAnimationPop
+        marker19.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker19.icon = UIImage(named:"bus_stop_orange")
         marker19.map = mapView
         
@@ -230,7 +231,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker20.position = CLLocationCoordinate2DMake(36.977654, -122.053599)
         marker20.title = "Main Entrance"
         marker20.snippet = "10 12 20 16"
-        marker20.appearAnimation = kGMSMarkerAnimationPop
+        marker20.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker20.icon = UIImage(named:"bus_stop_blue")
         marker20.map = mapView
         
@@ -238,7 +239,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker21.position = CLLocationCoordinate2DMake(36.981535, -122.052068)
         marker21.title = "Coolidge Dr. & Lower Campus"
         marker21.snippet = "15 19"
-        marker21.appearAnimation = kGMSMarkerAnimationPop
+        marker21.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker21.icon = UIImage(named:"bus_stop_orange")
         marker21.map = mapView
         
@@ -246,7 +247,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker22.position = CLLocationCoordinate2DMake(36.981430, -122.051962)
         marker22.title = "Coolidge Dr. & Lower Campus"
         marker22.snippet = "10 12 20 16"
-        marker22.appearAnimation = kGMSMarkerAnimationPop
+        marker22.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker22.icon = UIImage(named:"bus_stop_blue")
         marker22.map = mapView
         
@@ -254,7 +255,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker23.position = CLLocationCoordinate2DMake(36.985438, -122.053505)
         marker23.title = "Hagar & Lower Quarry Rd."
         marker23.snippet = "15 19"
-        marker23.appearAnimation = kGMSMarkerAnimationPop
+        marker23.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker23.icon = UIImage(named:"bus_stop_orange")
         marker23.map = mapView
         
@@ -262,7 +263,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker24.position = CLLocationCoordinate2DMake(36.985851, -122.053511)
         marker24.title = "Hagar & Lower Quarry Rd."
         marker24.snippet = "10 12 20 16"
-        marker24.appearAnimation = kGMSMarkerAnimationPop
+        marker24.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker24.icon = UIImage(named:"bus_stop_blue")
         marker24.map = mapView
         
@@ -270,7 +271,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker25.position = CLLocationCoordinate2DMake(36.991276, -122.054696)
         marker25.title = "Hagar & East Remote Parking Lot"
         marker25.snippet = "10 12 20 16"
-        marker25.appearAnimation = kGMSMarkerAnimationPop
+        marker25.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker25.icon = UIImage(named:"bus_stop_blue")
         marker25.map = mapView
         
@@ -278,7 +279,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker26.position = CLLocationCoordinate2DMake(36.991263, -122.054873)
         marker26.title = "Hagar & East Remote Parking Lot"
         marker26.snippet = "15 19"
-        marker26.appearAnimation = kGMSMarkerAnimationPop
+        marker26.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker26.icon = UIImage(named:"bus_stop_orange")
         marker26.map = mapView
         
@@ -286,7 +287,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker27.position = CLLocationCoordinate2DMake(36.994220, -122.055522)
         marker27.title = "Hagar & East Field House"
         marker27.snippet = "10 12 20 16"
-        marker27.appearAnimation = kGMSMarkerAnimationPop
+        marker27.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker27.icon = UIImage(named:"bus_stop_blue")
         marker27.map = mapView
         
@@ -294,7 +295,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker28.position = CLLocationCoordinate2DMake(36.996636, -122.055431)
         marker28.title = "Hagar & Bookstore"
         marker28.snippet = "15 19"
-        marker28.appearAnimation = kGMSMarkerAnimationPop
+        marker28.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker28.icon = UIImage(named:"bus_stop_orange")
         marker28.map = mapView
         
@@ -302,7 +303,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker29.position = CLLocationCoordinate2DMake(36.997455, -122.055066)
         marker29.title = "Hagar & Bookstore"
         marker29.snippet = "10 12 20 16"
-        marker29.appearAnimation = kGMSMarkerAnimationPop
+        marker29.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker29.icon = UIImage(named:"bus_stop_blue")
         marker29.map = mapView
         
@@ -310,7 +311,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         marker30.position = CLLocationCoordinate2DMake(36.999009, -122.055230)
         marker30.title = "McLaughlin & Crown College"
         marker30.snippet = "10 12 20 16"
-        marker30.appearAnimation = kGMSMarkerAnimationPop
+        marker30.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker30.icon = UIImage(named:"bus_stop_blue")
         marker30.map = mapView
         }
