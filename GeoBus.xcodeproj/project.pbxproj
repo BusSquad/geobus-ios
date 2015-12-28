@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3E4A9F954B3A011AB7D6C549 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDBD1420A57C5A5055F030B8 /* libPods.a */; };
-		653AB3F11C0E22420024FBBA /* bus_stop_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 653AB3EE1C0E22420024FBBA /* bus_stop_blue.png */; settings = {ASSET_TAGS = (); }; };
-		653AB3F21C0E22420024FBBA /* bus_stop_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 653AB3EF1C0E22420024FBBA /* bus_stop_orange.png */; settings = {ASSET_TAGS = (); }; };
-		653AB3F31C0E22420024FBBA /* slug.png in Resources */ = {isa = PBXBuildFile; fileRef = 653AB3F01C0E22420024FBBA /* slug.png */; settings = {ASSET_TAGS = (); }; };
-		657822531BF2D82B005D82FA /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 657822521BF2D82B005D82FA /* InfoWindow.xib */; settings = {ASSET_TAGS = (); }; };
-		657822551BF2DBC6005D82FA /* CustomInfoWindow.png in Resources */ = {isa = PBXBuildFile; fileRef = 657822541BF2DBC6005D82FA /* CustomInfoWindow.png */; settings = {ASSET_TAGS = (); }; };
+		653AB3F11C0E22420024FBBA /* bus_stop_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 653AB3EE1C0E22420024FBBA /* bus_stop_blue.png */; };
+		653AB3F21C0E22420024FBBA /* bus_stop_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 653AB3EF1C0E22420024FBBA /* bus_stop_orange.png */; };
+		653AB3F31C0E22420024FBBA /* slug.png in Resources */ = {isa = PBXBuildFile; fileRef = 653AB3F01C0E22420024FBBA /* slug.png */; };
+		6560F4051C30EB8B00A2330E /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6560F4041C30EB8B00A2330E /* CustomInfoWindow.m */; };
+		657822531BF2D82B005D82FA /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 657822521BF2D82B005D82FA /* InfoWindow.xib */; };
+		657822551BF2DBC6005D82FA /* CustomInfoWindow.png in Resources */ = {isa = PBXBuildFile; fileRef = 657822541BF2DBC6005D82FA /* CustomInfoWindow.png */; };
 		65A235CC1BD2BAF50063E6D8 /* innerloop.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A235C91BD2BAF50063E6D8 /* innerloop.png */; };
 		65A235CD1BD2BAF50063E6D8 /* outerloop.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A235CA1BD2BAF50063E6D8 /* outerloop.png */; };
 		65A235CE1BD2BAF50063E6D8 /* uppercampus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A235CB1BD2BAF50063E6D8 /* uppercampus.png */; };
@@ -47,6 +48,8 @@
 		653AB3EE1C0E22420024FBBA /* bus_stop_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus_stop_blue.png; sourceTree = "<group>"; };
 		653AB3EF1C0E22420024FBBA /* bus_stop_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus_stop_orange.png; sourceTree = "<group>"; };
 		653AB3F01C0E22420024FBBA /* slug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slug.png; sourceTree = "<group>"; };
+		6560F4041C30EB8B00A2330E /* CustomInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoWindow.m; sourceTree = "<group>"; };
+		6560F4061C30EC0A00A2330E /* CustomInfoWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomInfoWindow.h; sourceTree = "<group>"; };
 		657822521BF2D82B005D82FA /* InfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
 		657822541BF2DBC6005D82FA /* CustomInfoWindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CustomInfoWindow.png; sourceTree = "<group>"; };
 		6599BCD01BDEC1CB002E179F /* GeoBus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GeoBus-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				65FF12251BCC757800792BF5 /* Info.plist */,
 				6599BCD01BDEC1CB002E179F /* GeoBus-Bridging-Header.h */,
 				657822521BF2D82B005D82FA /* InfoWindow.xib */,
+				6560F4041C30EB8B00A2330E /* CustomInfoWindow.m */,
+				6560F4061C30EC0A00A2330E /* CustomInfoWindow.h */,
 			);
 			path = GeoBus;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6560F4051C30EB8B00A2330E /* CustomInfoWindow.m in Sources */,
 				65FF121C1BCC757800792BF5 /* ViewController.swift in Sources */,
 				65FF121A1BCC757800792BF5 /* AppDelegate.swift in Sources */,
 			);

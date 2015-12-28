@@ -2,12 +2,17 @@
 //  CustomInfoWindow.h
 //  GeoBus
 //
-//  Created by Ivan Alvarado on 11/10/15.
+//  Created by Ivan Alvarado on 12/27/15.
 //  Copyright © 2015 Bus Squad UCSC. All rights reserved.
 //
 
-#ifndef CustomInfoWindow_h
-#define CustomInfoWindow_h
+#import <UIKit/UIKit.h>
 
 
-#endif /* CustomInfoWindow_h */
+@interface CustomInfoWindow : UIView
+
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *address;
+@property (weak, nonatomic) IBOutlet UIImageView *photo;
+
+@end

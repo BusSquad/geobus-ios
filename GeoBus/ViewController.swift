@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController, NSXMLParserDelegate {
+class ViewController: UIViewController, NSXMLParserDelegate, GMSMapViewDelegate {
     
     var parser = NSXMLParser()
     var timer  = NSTimer()
@@ -73,8 +73,10 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         busbutton.addTarget(self, action: "buttonAction:", forControlEvents: .TouchUpInside)
         self.view.addSubview(busbutton)
         
-        // bus stops
+        // if toggle button is clicked, toggle bus stops
         if(buttonclick == true){
+            
+        // bus stops
         let marker1 = GMSMarker()
         marker1.position = CLLocationCoordinate2DMake(36.985370, -122.060099)
         marker1.title = "University of California Santa Cruz"
@@ -326,9 +328,8 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         print("coord has a count attribute of \(coord.count)")
         print("coord has \(coord.markers.count) markers")
         
+        // initially displays BTS information
         reloadBuses()
-        
-        
         
         // runs reloadBuses() every 10 seconds
         timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "reloadBuses", userInfo: nil, repeats: true)
