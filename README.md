@@ -1,2 +1,3 @@
 # GeoBus (iOS)
-iOS variant of GeoBus.
+
+GeoBus is a mobile application that tracks the position of active buses on the University of California, Santa Cruz campus.
