@@ -1,2 +1,2 @@
-# geobus-ios
+# GeoBus (iOS)
 iOS variant of GeoBus.

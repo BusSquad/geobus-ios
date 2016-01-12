@@ -4,3 +4,4 @@
 
 #import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "CustomInfoWindow.h"
