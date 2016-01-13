@@ -5,7 +5,7 @@ GeoBus is a mobile application that tracks the position of active buses on the U
 Requirements
 ------------
 
-The most current source code is compatible with Xcode v. 7.2.
+The most current source code is compatible with Xcode v. 7.2 and Swift 2.0.
 
 Documentation
 -------------
