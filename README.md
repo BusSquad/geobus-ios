@@ -7,6 +7,11 @@ Requirements
 
 The most current source code is compatible with Xcode v. 7.2 and Swift 2.0.
 
+Libraries
+---------
+
+Our project uses the [Google Maps SDK for iOS](https://developers.google.com/maps/documentation/ios-sdk/intro). You can install to your project using the CocoaPods tool following [these](https://developers.google.com/maps/documentation/ios-sdk/start) steps.
+
 Documentation
 -------------
 
