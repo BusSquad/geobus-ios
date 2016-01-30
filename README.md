@@ -1,5 +1,7 @@
 # GeoBus (iOS)
 
+THIS PROJECT HAS MOVED TO [THIS](https://github.com/ivanalvarado/GeoBus) REPOSITORY.
+
 GeoBus is a mobile application that tracks the position of active buses on the University of California, Santa Cruz campus. This is the iOS variant. You can find the Android repository [here](https://github.com/BusSquad/geobus-android).
 
 Requirements
@@ -15,7 +17,7 @@ Our project uses the [Google Maps SDK for iOS](https://developers.google.com/map
 To Do
 -----
 
-If you clone the repository this issue might be taken care of for you, but it's always good to double check. When we first tried parsing our XML file, we kept getting the following error:
+If you clone the repository this issue might be taken care of, but it's always good to double check. When we first tried parsing our XML file, we kept getting the following error:
 
 ```shell
 Transport security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app's Info.plist file.

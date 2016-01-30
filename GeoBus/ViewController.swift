@@ -180,6 +180,14 @@ class ViewController: UIViewController, NSXMLParserDelegate, GMSMapViewDelegate 
         marker13.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker13.icon = UIImage(named:"bus_stop_blue")
         marker13.map = mapView
+            
+        let marker15 = GMSMarker()
+        marker15.position = CLLocationCoordinate2DMake(36.982729, -122.062573)
+        marker15.title = "Empire Grade & Arboretum"
+        marker15.snippet = "15 19"
+        marker15.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
+        marker15.icon = UIImage(named:"bus_stop_orange")
+        marker15.map = mapView
         
         let marker14 = GMSMarker()
         marker14.position = CLLocationCoordinate2DMake(36.983681, -122.065073)
@@ -188,14 +196,6 @@ class ViewController: UIViewController, NSXMLParserDelegate, GMSMapViewDelegate 
         marker14.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker14.icon = UIImage(named:"bus_stop_blue")
         marker14.map = mapView
-        
-        let marker15 = GMSMarker()
-        marker15.position = CLLocationCoordinate2DMake(36.982729, -122.062573)
-        marker15.title = "Empire Grade & Arboretum"
-        marker15.snippet = "15 19"
-        marker15.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
-        marker15.icon = UIImage(named:"bus_stop_orange")
-        marker15.map = mapView
         
         let marker16 = GMSMarker()
         marker16.position = CLLocationCoordinate2DMake(36.979882, -122.059269)
@@ -268,6 +268,14 @@ class ViewController: UIViewController, NSXMLParserDelegate, GMSMapViewDelegate 
         marker24.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker24.icon = UIImage(named:"bus_stop_blue")
         marker24.map = mapView
+            
+        let marker26 = GMSMarker()
+        marker26.position = CLLocationCoordinate2DMake(36.991263, -122.054873)
+        marker26.title = "Hagar & East Remote Parking Lot"
+        marker26.snippet = "15 19"
+        marker26.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
+        marker26.icon = UIImage(named:"bus_stop_orange")
+        marker26.map = mapView
         
         let marker25 = GMSMarker()
         marker25.position = CLLocationCoordinate2DMake(36.991276, -122.054696)
@@ -276,14 +284,6 @@ class ViewController: UIViewController, NSXMLParserDelegate, GMSMapViewDelegate 
         marker25.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
         marker25.icon = UIImage(named:"bus_stop_blue")
         marker25.map = mapView
-        
-        let marker26 = GMSMarker()
-        marker26.position = CLLocationCoordinate2DMake(36.991263, -122.054873)
-        marker26.title = "Hagar & East Remote Parking Lot"
-        marker26.snippet = "15 19"
-        marker26.appearAnimation = GoogleMaps.kGMSMarkerAnimationPop
-        marker26.icon = UIImage(named:"bus_stop_orange")
-        marker26.map = mapView
         
         let marker27 = GMSMarker()
         marker27.position = CLLocationCoordinate2DMake(36.994220, -122.055522)
