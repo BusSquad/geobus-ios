@@ -1,6 +1,6 @@
 # GeoBus (iOS)
 
-THIS PROJECT HAS MOVED TO [THIS](https://github.com/ivanalvarado/GeoBus) REPOSITORY.
+THIS PROJECT HAS MOVED TO A PRIVATE REPOSITORY. IF YOU WANT ACCESS TO THE NEW REPOSITORY, PLEASE EMAIL ME AT: ivalvara [at] ucsc [dot] edu.
 
 GeoBus is a mobile application that tracks the position of active buses on the University of California, Santa Cruz campus. This is the iOS variant. You can find the Android repository [here](https://github.com/BusSquad/geobus-android).
 
